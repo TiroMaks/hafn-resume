@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { onest } from "@/app/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${onest.variable} font-sans`}>
       <body>
         {children}
       </body>
