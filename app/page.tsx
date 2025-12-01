@@ -222,6 +222,23 @@ export default function Home() {
               />
               }
             />
+            <MyProject
+              title="SQLMi"
+              description="Веб интерфейс для выполнения запросов к реляционным базам данных. Написан командой из 5 человек на Next, Spring Boot; развернут на Docker"
+              siteUrl="https://github.com/TiroMaks/sqlmi"
+              gradientFrom="#303030"
+              gradientTo="#0A0A0A"
+              borderColor="#B9B9B9"
+              image={
+              <Image
+                src="/images/projects/sqlmi.png"
+                alt="Project image"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              }
+            />
           </div>
         } titleIcon={
           <Image
