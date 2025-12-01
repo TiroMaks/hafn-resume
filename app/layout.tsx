@@ -4,11 +4,11 @@ import "./globals.css";
 import MyHeader from "./components/MyHeader";
 
 export const metadata: Metadata = {
-  title: "Веб-сайт для резюме",
-  description: "Этот сайт - онлайн резюме, с проектами которые я реализовал",
+  title: "Резюме сайт - hafn.ru",
+  description: "Здесь предоставлена информация о навыках, проектах и контактах с автором",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
