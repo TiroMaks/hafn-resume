@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { onest } from "@/app/fonts";
+import { martianMono } from "@/app/fonts";
 import "./globals.css";
+import MyHeader from "./components/MyHeader";
 
 export const metadata: Metadata = {
   title: "Веб-сайт для резюме",
@@ -17,8 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${onest.variable} font-sans`}>
-      <body>
+    <html lang="ru" className={`${martianMono.variable} font-sans`}>
+      <body className="flex flex-col items-center">
+        <MyHeader />
         {children}
       </body>
     </html>
