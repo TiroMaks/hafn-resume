@@ -39,7 +39,7 @@ export default function MyHeader() {
         }`}
         style={{
           height: "calc(100% + 60px)",
-          backgroundColor: "rgba(12, 12, 12, 0.93)",
+          backgroundColor: "var(--header-overlay)",
           backdropFilter: "blur(10px)",
           maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",

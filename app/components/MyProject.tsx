@@ -26,7 +26,7 @@ const MyProject: React.FC<MyProjectProps> = ({
   buttonBackground
 }) => {
   const gradientStart = gradientFrom ?? "#11322C";
-  const gradientEnd = gradientTo ?? "#0A0A0A";
+  const gradientEnd = gradientTo ?? "var(--project-gradient-to)";
   const baseBorderColor = borderColor ?? "#277E6D";
   const buttonBaseColor = buttonBackground ?? gradientStart;
 
@@ -108,7 +108,8 @@ const MyProject: React.FC<MyProjectProps> = ({
     borderColor: baseBorderColor,
     backgroundColor: isButtonActive ? baseBorderColor : buttonBaseColor,
     transform: `scale(${buttonScale})`,
-    transition: "transform 0.2s ease, background-color 0.2s ease"
+    transition: "transform 0.2s ease, background-color 0.2s ease",
+    color: "var(--project-button-text)"
   };
 
   return (
@@ -129,11 +130,11 @@ const MyProject: React.FC<MyProjectProps> = ({
         <div className="relative h-full w-full">{processedImage}</div>
       </div>
       <div className="flex w-full flex-col items-center gap-[5px] p-[10px] text-center">
-        <h2 className="text-[16px] text-[#FFFFFF]">{title}</h2>
-        <p className="text-[12px] font-thin text-[#FFFFFF] h-full">{description}</p>
+        <h2 className="text-[16px]" style={{ color: "var(--project-text-color)" }}>{title}</h2>
+        <p className="text-[12px] font-thin h-full" style={{ color: "var(--project-description-color)" }}>{description}</p>
         <button
           onClick={() => window.open(siteUrl, "_blank", "noopener,noreferrer")}
-          className="mt-[5px] cursor-pointer rounded-[8px] border-[3px] px-[30px] py-[5px] text-[13px] text-[#B4B4B4]"
+          className="mt-[5px] cursor-pointer rounded-[8px] border-[3px] px-[30px] py-[5px] text-[13px]"
           style={buttonStyle}
           onMouseEnter={() => setIsButtonHover(true)}
           onMouseLeave={() => {

@@ -18,6 +18,30 @@ export default function DotBackground() {
     let mouseX = -1000;
     let mouseY = -1000;
 
+    const getDotColor = () => {
+      const value = getComputedStyle(document.documentElement).getPropertyValue("--dot-color");
+      return value.trim() || "rgba(0, 0, 0, 0.2)";
+    };
+
+    let dotColor = getDotColor();
+
+    const updateDotColor = () => {
+      dotColor = getDotColor();
+    };
+
+    const mediaQuery =
+      typeof window.matchMedia === "function"
+        ? window.matchMedia("(prefers-color-scheme: dark)")
+        : undefined;
+
+    if (mediaQuery) {
+      if (typeof mediaQuery.addEventListener === "function") {
+        mediaQuery.addEventListener("change", updateDotColor);
+      } else if (typeof mediaQuery.addListener === "function") {
+        mediaQuery.addListener(updateDotColor);
+      }
+    }
+
     const DOT_SIZE = 5;
     const GAP = 20;
     const GRID_PITCH = DOT_SIZE + GAP;
@@ -65,10 +89,8 @@ export default function DotBackground() {
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Detect dark mode
-      const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      ctx.fillStyle = isDark ? "rgba(45, 45, 45, 0.2)" : "rgba(0, 0, 0, 0.2)";
+
+      ctx.fillStyle = dotColor;
 
       dots.forEach((dot) => {
         let targetX = dot.baseX;
@@ -104,6 +126,13 @@ export default function DotBackground() {
       resizeObserver.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
+      if (mediaQuery) {
+        if (typeof mediaQuery.removeEventListener === "function") {
+          mediaQuery.removeEventListener("change", updateDotColor);
+        } else if (typeof mediaQuery.removeListener === "function") {
+          mediaQuery.removeListener(updateDotColor);
+        }
+      }
     };
   }, []);
 

@@ -28,16 +28,22 @@ const MyButton: React.FC<MyButtonProps> = ({
   onMouseLeave,
 }) => {
   const baseStyle =
-    "flex items-center justify-center font-normal transition-all duration-300 px-[30px] py-[10px] gap-[8px] cursor-pointer select-none rounded-[14px] border-[3px]";
+    "flex items-center justify-center font-normal transition-all duration-300 px-[30px] py-[10px] gap-[8px] cursor-pointer select-none rounded-[14px] border-[3px] hover:scale-105 active:scale-95";
 
-  const styleMap = {
-    dark: "bg-[#0A0A0A] text-[#B4B4B4] border-[#141414] hover:scale-105 active:scale-95",
-  } as const;
+  const styleMap: Record<string, React.CSSProperties> = {
+    dark: {
+      backgroundColor: "var(--button-background)",
+      color: "var(--button-text)",
+      borderColor: "var(--button-border)"
+    }
+  };
 
   const hasText = !!text;
   const hasIcon = !!icon;
 
-  const style = `${baseStyle} ${styleMap[type]} ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className || ""} ${
+  const resolvedStyle = styleMap[type] ?? styleMap.dark;
+
+  const style = `${baseStyle} ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className || ""} ${
     !hasText && hasIcon ? "aspect-square p-2" : ""
   }`;
 
@@ -49,6 +55,7 @@ const MyButton: React.FC<MyButtonProps> = ({
       disabled={disabled}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={resolvedStyle}
     >
       {iconPosition === "left" && icon && <span className="flex items-center">{icon}</span>}
       {text && <span className="select-none">{text}</span>}

@@ -18,16 +18,21 @@ const MyCard: React.FC<MyCardProps> = ({
   content
 }) => {
   const containerClassName = [
-    "w-full p-[20px] border-[3px] border-[#141414] bg-[#0A0A0A] rounded-[14px] flex flex-col gap-[15px]",
+    "w-full p-[20px] border-[3px] rounded-[14px] flex flex-col gap-[15px]",
     className
   ]
     .filter(Boolean)
     .join(" ");
 
+  const containerStyle: React.CSSProperties = {
+    backgroundColor: "var(--surface-card-background)",
+    borderColor: "var(--surface-card-border)"
+  };
+
   const normalizedContent = React.Children.toArray(content);
 
   return (
-    <div className={containerClassName} id={id}>
+    <div className={containerClassName} id={id} style={containerStyle}>
       <div className="flex items-center gap-[10px]">
         {titleIcon}
         <span className="text-[19px] text-[var(--color-title)]">{title}</span>

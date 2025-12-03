@@ -2,8 +2,70 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --color-title: #B4B4B4;
+  --foreground: #1f2933;
+  --color-title: #1f2937;
+  --color-muted: #4b5563;
+  --color-emphasis: #111827;
+  --surface-card-background: #ffffff;
+  --surface-card-border: #e5e7eb;
+  --chip-background: #f3f4f6;
+  --chip-border: #d2d9e3;
+  --button-background: #f9fafb;
+  --button-border: #d1d5db;
+  --button-text: #1f2937;
+  --hero-band-color: #ffffff;
+  --header-overlay: rgba(255, 255, 255, 0.9);
+  --footer-card-background: #ffffff;
+  --footer-card-border: #e5e7eb;
+  --typewriter-text-gradient-start: #111827;
+  --typewriter-text-gradient-end: #4b5563;
+  --typewriter-cursor-color: #4b5563;
+  --dot-color: rgba(15, 23, 42, 0.08);
+  --project-gradient-to: #0A0A0A;
+  --project-text-color: #FFFFFF;
+  --project-description-color: #FFFFFF;
+  --project-button-text: #B4B4B4;
+
+  --skill-vue-text: #1f5133;
+  --skill-vue-border: #6fcf97;
+  --skill-vue-background: #ebf7f0;
+  --skill-react-text: #0369a1;
+  --skill-react-border: #38bdf8;
+  --skill-react-background: #e0f2ff;
+  --skill-typescript-text: #1d4ed8;
+  --skill-typescript-border: #60a5fa;
+  --skill-typescript-background: #e7efff;
+  --skill-tailwind-text: #334155;
+  --skill-tailwind-border: #94a3b8;
+  --skill-tailwind-background: #f1f5f9;
+  --skill-custom-css-text: #1d4f91;
+  --skill-custom-css-border: #3b82f6;
+  --skill-custom-css-background: #e6f0ff;
+  --skill-spring-boot-text: #2f6b2f;
+  --skill-spring-boot-border: #6fcf97;
+  --skill-spring-boot-background: #edf7ed;
+  --skill-hibernate-text: #475569;
+  --skill-hibernate-border: #94a3af;
+  --skill-hibernate-background: #eef2f5;
+  --skill-java-text: #b91c1c;
+  --skill-java-border: #f87171;
+  --skill-java-background: #fee2e2;
+  --skill-spring-security-text: #0f766e;
+  --skill-spring-security-border: #34d399;
+  --skill-spring-security-background: #e6f8f3;
+  --skill-lombok-text: #374151;
+  --skill-lombok-border: #9ca3af;
+  --skill-lombok-background: #f3f4f6;
+
+  --contact-github-text: #111827;
+  --contact-github-border: #d1d5db;
+  --contact-github-background: #f3f4f6;
+  --contact-telegram-text: #075985;
+  --contact-telegram-border: #34A6DE;
+  --contact-telegram-background: #e4f4fb;
+  --contact-email-text: #b91c1c;
+  --contact-email-border: #f87171;
+  --contact-email-background: #fee2e2;
 }
 
 @theme inline {
@@ -18,6 +80,69 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --color-title: #B4B4B4;
+    --color-muted: #B4B4B4;
+    --color-emphasis: #EBEBEB;
+    --surface-card-background: #0A0A0A;
+    --surface-card-border: #141414;
+    --chip-background: #141414;
+    --chip-border: #222222;
+    --button-background: #0A0A0A;
+    --button-border: #141414;
+    --button-text: #B4B4B4;
+    --hero-band-color: #0A0A0A;
+    --header-overlay: rgba(12, 12, 12, 0.93);
+    --footer-card-background: #0A0A0A;
+    --footer-card-border: #141414;
+    --typewriter-text-gradient-start: #C3C3C3;
+    --typewriter-text-gradient-end: #2C2C2C;
+    --typewriter-cursor-color: #C3C3C3;
+    --dot-color: rgba(45, 45, 45, 0.2);
+    --project-gradient-to: #0A0A0A;
+    --project-text-color: #FFFFFF;
+    --project-description-color: #FFFFFF;
+    --project-button-text: #B4B4B4;
+
+    --skill-vue-text: #56BC8E;
+    --skill-vue-border: #56BC8E;
+    --skill-vue-background: #193227;
+    --skill-react-text: #69D5F3;
+    --skill-react-border: #69D5F3;
+    --skill-react-background: #23444D;
+    --skill-typescript-text: #3E7DC3;
+    --skill-typescript-border: #3E7DC3;
+    --skill-typescript-background: #1E2D3F;
+    --skill-tailwind-text: #B9B9B9;
+    --skill-tailwind-border: #B9B9B9;
+    --skill-tailwind-background: #3F3F3F;
+    --skill-custom-css-text: #2478B5;
+    --skill-custom-css-border: #2478B5;
+    --skill-custom-css-background: #0C293F;
+    --skill-spring-boot-text: #73B24A;
+    --skill-spring-boot-border: #73B24A;
+    --skill-spring-boot-background: #263B18;
+    --skill-hibernate-text: #8CA2AD;
+    --skill-hibernate-border: #8CA2AD;
+    --skill-hibernate-background: #3A4246;
+    --skill-java-text: #F73A2E;
+    --skill-java-border: #F73A2E;
+    --skill-java-background: #3C0E0B;
+    --skill-spring-security-text: #42A47E;
+    --skill-spring-security-border: #42A47E;
+    --skill-spring-security-background: #193B2E;
+    --skill-lombok-text: #BDBDBD;
+    --skill-lombok-border: #3D3D3D;
+    --skill-lombok-background: #101010;
+
+    --contact-github-text: #B4B4B4;
+    --contact-github-border: #222222;
+    --contact-github-background: #141414;
+    --contact-telegram-text: #34A6DE;
+    --contact-telegram-border: #34A6DE;
+    --contact-telegram-background: #0E3243;
+    --contact-email-text: #CE5343;
+    --contact-email-border: #CE5343;
+    --contact-email-background: #371713;
   }
 }
 
@@ -27,6 +152,14 @@ body {
   font-family: var(--font-martian-mono), Arial, Helvetica, sans-serif;
   min-height: 100vh;
   overflow-x: hidden; 
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-emphasis {
+  color: var(--color-emphasis);
 }
 
 @keyframes typewriterBlink {

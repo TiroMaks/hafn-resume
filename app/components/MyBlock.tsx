@@ -22,8 +22,8 @@ const MyBlock: React.FC<MyBlockProps> = ({
   borderColor
 }) => {
   const defaultTextColor = textColor ?? "var(--color-title)";
-  const defaultBackgroundColor = backgroundColor ?? "#141414";
-  const defaultBorderColor = borderColor ?? "#222222";
+  const defaultBackgroundColor = backgroundColor ?? "var(--chip-background)";
+  const defaultBorderColor = borderColor ?? "var(--chip-border)";
 
   const containerClassName = [
     "px-[30px] py-[5px] border-[2px] rounded-[8px] flex flex-row items-center justify-center gap-[10px]",
