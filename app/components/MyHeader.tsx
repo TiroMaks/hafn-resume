@@ -6,14 +6,25 @@ import MyButton from "./MyButton";
 
 export default function MyHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleScrollTo = useCallback((id: string) => {
@@ -29,10 +40,42 @@ export default function MyHeader() {
         behavior: "smooth"
       });
     }
+    setIsMenuOpen(false);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const navItems = [
+    {
+      label: "Обо мне",
+      iconSrc: "/images/icons/user.svg",
+      iconAlt: "User icon",
+      target: "about"
+    },
+    {
+      label: "Навыки",
+      iconSrc: "/images/icons/bug.svg",
+      iconAlt: "Bug icon",
+      target: "skills"
+    },
+    {
+      label: "Проекты",
+      iconSrc: "/images/icons/columns-3.svg",
+      iconAlt: "Columns icon",
+      target: "projects"
+    },
+    {
+      label: "Связь",
+      iconSrc: "/images/icons/link.svg",
+      iconAlt: "Link icon",
+      target: "contact"
+    }
+  ] as const;
+
   return (
-    <header className="w-full fixed top-0 flex justify-center items-center z-20">
+    <header className="w-full fixed top-0 flex justify-center items-center z-20 px-4">
       <div
         className={`absolute top-0 left-0 w-full -z-10 transition-opacity duration-300 ${
           isScrolled ? "opacity-100" : "opacity-0"
@@ -57,61 +100,85 @@ export default function MyHeader() {
             />}
             iconPosition="left" />
         </div>
-        <div className="flex gap-[5px]">
-          <MyButton
-            text="Обо мне"
-            icon={
-              <Image
-                src="/images/icons/user.svg"
-                alt="User icon"
-                width={24}
-                height={24}
-              />
-            }
-            iconPosition="left"
-            onClick={() => handleScrollTo("about")}
-          />
-          <MyButton
-            text="Навыки"
-            icon={
-              <Image
-                src="/images/icons/bug.svg"
-                alt="Bug icon"
-                width={24}
-                height={24}
-              />
-            }
-            iconPosition="left"
-            onClick={() => handleScrollTo("skills")}
-          />
-          <MyButton
-            text="Проекты"
-            icon={
-              <Image
-                src="/images/icons/columns-3.svg"
-                alt="Columns icon"
-                width={24}
-                height={24}
-              />
-            }
-            iconPosition="left"
-            onClick={() => handleScrollTo("projects")}
-          />
-          <MyButton
-            text="Связь"
-            icon={
-              <Image
-                src="/images/icons/link.svg"
-                alt="Link icon"
-                width={24}
-                height={24}
-              />
-            }
-            iconPosition="left"
-            onClick={() => handleScrollTo("contact")}
-          />
+        <div className="hidden md:flex gap-[5px]">
+          {navItems.map((item) => (
+            <MyButton
+              key={item.target}
+              text={item.label}
+              icon={
+                <Image
+                  src={item.iconSrc}
+                  alt={item.iconAlt}
+                  width={24}
+                  height={24}
+                />
+              }
+              iconPosition="left"
+              onClick={() => handleScrollTo(item.target)}
+            />
+          ))}
         </div>
+        <button
+          className="md:hidden relative flex h-[48px] w-[48px] items-center justify-center rounded-[12px] border-[3px]"
+          style={{
+            borderColor: "var(--button-border)",
+            backgroundColor: "var(--button-background)"
+          }}
+          type="button"
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        >
+          <span
+            className={`absolute left-1/2 top-1/2 h-[2px] w-[22px] rounded-full transition-transform duration-300 -translate-x-1/2 ${
+              isMenuOpen ? "translate-y-0 rotate-45" : "-translate-y-[8px]"
+            }`}
+            style={{ backgroundColor: "var(--button-text)" }}
+          />
+          <span
+            className={`absolute left-1/2 top-1/2 h-[2px] w-[22px] rounded-full transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2 ${
+              isMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
+            style={{ backgroundColor: "var(--button-text)" }}
+          />
+          <span
+            className={`absolute left-1/2 top-1/2 h-[2px] w-[22px] rounded-full transition-transform duration-300 -translate-x-1/2 ${
+              isMenuOpen ? "translate-y-0 -rotate-45" : "translate-y-[8px]"
+            }`}
+            style={{ backgroundColor: "var(--button-text)" }}
+          />
+        </button>
       </div>
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 mt-[14px] px-4">
+          <div
+            className="w-full border-[3px] rounded-[14px] px-[18px] py-[16px] flex flex-col gap-[10px]"
+            style={{
+              borderColor: "var(--surface-card-border)",
+              backgroundColor: "var(--surface-card-background)",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.25)"
+            }}
+          >
+            {navItems.map((item) => (
+              <MyButton
+                key={`mobile-${item.target}`}
+                text={item.label}
+                icon={
+                  <Image
+                    src={item.iconSrc}
+                    alt={item.iconAlt}
+                    width={20}
+                    height={20}
+                  />
+                }
+                iconPosition="left"
+                className="w-full justify-start"
+                onClick={() => handleScrollTo(item.target)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -60,7 +60,7 @@ export default function Typewriter({
   return (
     <span className="inline-flex items-center">
       <span
-        className="text-[38px] font-bold bg-clip-text text-transparent"
+        className="text-[26px] sm:text-[36px] md:text-[42px] font-bold bg-clip-text text-transparent"
         style={{
           backgroundImage:
             "linear-gradient(to bottom, var(--typewriter-text-gradient-start), var(--typewriter-text-gradient-end))"
@@ -69,7 +69,7 @@ export default function Typewriter({
         {displayText}
       </span>
       <span
-        className="text-[38px] font-bold typewriter-cursor ml-1"
+        className="text-[26px] sm:text-[36px] md:text-[42px] font-bold typewriter-cursor ml-1"
         style={{ color: "var(--typewriter-cursor-color)" }}
       >
         |

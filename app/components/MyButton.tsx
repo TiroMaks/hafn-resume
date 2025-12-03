@@ -58,7 +58,7 @@ const MyButton: React.FC<MyButtonProps> = ({
       style={resolvedStyle}
     >
       {iconPosition === "left" && icon && <span className="flex items-center">{icon}</span>}
-      {text && <span className="select-none">{text}</span>}
+      {text && <span className="select-none whitespace-nowrap">{text}</span>}
       {iconPosition === "right" && icon && <span className="flex items-center">{icon}</span>}
     </button>
   );

@@ -115,7 +115,7 @@ const MyProject: React.FC<MyProjectProps> = ({
   return (
     <div
       className={[
-        "relative transition-transform border-[4px] rounded-[12px] flex items-stretch gap-[10px] justify-between overflow-hidden",
+        "relative transition-transform border-[4px] rounded-[12px] flex flex-col md:flex-row items-stretch gap-[12px] md:gap-[10px] justify-start md:justify-between overflow-hidden",
         className
       ]
         .filter(Boolean)
@@ -126,15 +126,15 @@ const MyProject: React.FC<MyProjectProps> = ({
         resetTilt();
       }}
     >
-      <div className="relative basis-[45%] flex-shrink-0 overflow-hidden">
+      <div className="relative w-full min-h-[140px] aspect-[4/3] md:aspect-auto md:min-h-[220px] md:basis-[45%] md:flex-shrink-0 overflow-hidden">
         <div className="relative h-full w-full">{processedImage}</div>
       </div>
-      <div className="flex w-full flex-col items-center gap-[5px] p-[10px] text-center">
-        <h2 className="text-[16px]" style={{ color: "var(--project-text-color)" }}>{title}</h2>
-        <p className="text-[12px] font-thin h-full leading-[15px]" style={{ color: "var(--project-description-color)" }}>{description}</p>
+      <div className="flex w-full flex-col items-center md:items-start gap-[8px] p-[14px] md:p-[16px] text-center md:text-left">
+        <h2 className="text-[16px] md:text-[17px]" style={{ color: "var(--project-text-color)" }}>{title}</h2>
+        <p className="text-[13px] md:text-[12px] font-thin leading-[18px] md:leading-[15px] md:h-full" style={{ color: "var(--project-description-color)" }}>{description}</p>
         <button
           onClick={() => window.open(siteUrl, "_blank", "noopener,noreferrer")}
-          className="mt-[5px] cursor-pointer rounded-[8px] border-[3px] px-[30px] py-[5px] text-[13px]"
+          className="mt-[5px] w-full md:w-auto cursor-pointer rounded-[8px] border-[3px] px-[26px] md:px-[30px] py-[7px] text-[13px] whitespace-nowrap"
           style={buttonStyle}
           onMouseEnter={() => setIsButtonHover(true)}
           onMouseLeave={() => {

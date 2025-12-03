@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="flex justify-center min-h-screen relative w-full">
       <DotBackground />
-      <div className="w-full mt-[150px] mb-[25px] flex flex-col items-center">
+      <div className="w-full mt-[90px] sm:mt-[110px] md:mt-[150px] mb-[25px] flex flex-col items-center px-4 sm:px-6">
         <div
-          className="py-[60px] flex items-center justify-center w-[100vw] left-0"
+          className="w-full px-2 sm:px-4 py-[40px] sm:py-[50px] md:py-[60px] flex items-center justify-center left-0"
           style={{
             background:
               "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--hero-band-color) 40%, var(--hero-band-color) 60%, rgba(255, 255, 255, 0) 100%)"
@@ -23,44 +23,79 @@ export default function Home() {
 
         <MyCard title="Обо мне" className="max-w-[1000px]" id="about" content={
           <div className="flex flex-col gap-[15px] w-full">
-            <div className="flex gap-[15px] w-full">
-              <MyBlock title="18 лет" textColor="#B2C09E" titleIcon={
-                <Image
-                  src="/images/icons/card.svg"
-                  alt="card icon"
-                  width={24}
-                  height={24}
-                />
-              } />
-              <MyBlock title="он/его" textColor="#8F90C9" titleIcon={
-                <Image
-                  src="/images/icons/badge.svg"
-                  alt="badge icon"
-                  width={24}
-                  height={24}
-                />
-              } />
-              <MyBlock title="Русский" textColor="#C99382" titleIcon={
-                <Image
-                  src="/images/icons/globe.svg"
-                  alt="globe icon"
-                  width={24}
-                  height={24}
-                />
-              } />
-              <MyBlock title="Backend-разработчик" textColor="var(--color-muted)" className="flex-1 min-w-0" titleIcon={
-                <Image
-                  src="/images/icons/cube.svg"
-                  alt="cube icon"
-                  width={24}
-                  height={24}
-                />
-              } />
+            <div className="flex flex-wrap gap-[12px] w-full justify-center sm:justify-between">
+              <MyBlock
+                title="18 лет"
+                className="sm:flex-1 whitespace-nowrap"
+                textColor="#B2C09E"
+                titleClassName="text-[15px] whitespace-nowrap"
+                titleIcon={
+                  <Image
+                    src="/images/icons/card.svg"
+                    alt="card icon"
+                    width={24}
+                    height={24}
+                  />
+                }
+              />
+              <MyBlock
+                title="он/его"
+                className="sm:flex-1 whitespace-nowrap"
+                textColor="#8F90C9"
+                titleClassName="text-[15px] whitespace-nowrap"
+                titleIcon={
+                  <Image
+                    src="/images/icons/badge.svg"
+                    alt="badge icon"
+                    width={24}
+                    height={24}
+                  />
+                }
+              />
+              <MyBlock
+                title="Русский"
+                className="sm:flex-1 whitespace-nowrap"
+                textColor="#C99382"
+                titleClassName="text-[15px] whitespace-nowrap"
+                titleIcon={
+                  <Image
+                    src="/images/icons/globe.svg"
+                    alt="globe icon"
+                    width={24}
+                    height={24}
+                  />
+                }
+              />
+              <MyBlock
+                title="Backend-разработчик"
+                className="sm:flex-[1.3] whitespace-nowrap"
+                textColor="var(--color-muted)"
+                titleClassName="text-[15px] whitespace-nowrap"
+                titleIcon={
+                  <Image
+                    src="/images/icons/cube.svg"
+                    alt="cube icon"
+                    width={24}
+                    height={24}
+                  />
+                }
+              />
             </div>
-            <div className="flex gap-[15px] w-full">
-              <MyBlock title={<><span>г. Старый Оскол, ОПК СТИ НИТУ МИСИС,</span><br /><span>Информационные системы и программирование (2027г выпуска, очное)</span></>} className="w-full text-center" textColor="var(--color-muted)"/>
+            <div className="flex w-full">
+              <MyBlock
+                title={
+                  <>
+                    <span className="block text-center text-[11px] sm:text-[16px]">г. Старый Оскол, ОПК СТИ НИТУ МИСИС,</span>
+                    <span className="block text-center text-wrap text-[11px] sm:text-[16px]">Информационные системы и программирование (2027г выпуска, очное)</span>
+                  </>
+                }
+                className="w-full text-left"
+                titleClassName="text-[15px] whitespace-normal leading-[20px]"
+                fullWidth
+                textColor="var(--color-muted)"
+              />
             </div>
-            <div className="flex gap-[10px]">
+            <div className="flex flex-wrap items-center gap-[10px] text-left">
               <Image
                 src="/images/icons/star.svg"
                 alt="star icon"
@@ -70,7 +105,7 @@ export default function Home() {
               <span className="text-[17px] text-muted">Опыт работы:</span>
               <span className="text-[17px] text-emphasis font-[500]">Неофициально на заказы 2 года</span>
             </div>
-            <div className="flex gap-[10px]">
+            <div className="flex flex-wrap items-center gap-[10px] text-left">
               <Image
                 src="/images/icons/graduation-hat.svg"
                 alt="graduation-hat icon"
@@ -80,7 +115,7 @@ export default function Home() {
               <span className="text-[17px] text-muted">Знание английского:</span>
               <span className="text-[17px] text-emphasis font-[500]">B1</span>
             </div>
-            <div className="flex gap-[10px]">
+            <div className="flex flex-wrap items-center gap-[10px] text-left">
               <Image
                 src="/images/icons/grid-plus.svg"
                 alt="grid-plus icon"
@@ -100,38 +135,108 @@ export default function Home() {
           />
         } />
 
-        <MyCard title="Навыки" className="max-w-[1000px] mt-[45px]" id="skills" content={
+        <MyCard title="Навыки" className="max-w-[1000px] mt-[30px] sm:mt-[40px] md:mt-[45px]" id="skills" content={
           <div className="flex flex-col gap-[15px] w-full">
             <div className="flex flex-col gap-[5px]">
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[17px] text-emphasis font-[500]">— Работы с Frontend</span>
                 <span className="text-[11px] text-muted font-light">(Next, TypeScript, Vue, React, Tailwind CSS, JavaScript)</span>
               </div>
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[17px] text-emphasis font-[500]">— Работы с Backend</span>
                 <span className="text-[11px] text-muted font-light">(Java, Spring Boot, Hibernate, Lombok, Spring Security)</span>
               </div>
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[17px] text-emphasis font-[500]">— Работы с DevOp’s</span>
                 <span className="text-[11px] text-muted font-light">(Docker)</span>
               </div>
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[17px] text-emphasis font-[500]">— Знание основ Linux’а</span>
               </div>
             </div>
-            <div className="flex gap-[15px] w-full">
-              <MyBlock title="Vue.js" textColor="var(--skill-vue-text)" borderColor="var(--skill-vue-border)" backgroundColor="var(--skill-vue-background)" className="text-nowrap"/>
-              <MyBlock title="React" textColor="var(--skill-react-text)" borderColor="var(--skill-react-border)" backgroundColor="var(--skill-react-background)" className="text-nowrap"/>
-              <MyBlock title="TypeScript" textColor="var(--skill-typescript-text)" borderColor="var(--skill-typescript-border)" backgroundColor="var(--skill-typescript-background)" className="text-nowrap"/>
-              <MyBlock title="Tailwind CSS" textColor="var(--skill-tailwind-text)" borderColor="var(--skill-tailwind-border)" backgroundColor="var(--skill-tailwind-background)" className="flex-1 min-w-0 text-nowrap"/>
-              <MyBlock title="Custom CSS" textColor="var(--skill-custom-css-text)" borderColor="var(--skill-custom-css-border)" backgroundColor="var(--skill-custom-css-background)" className="text-nowrap"/>
+            <div className="flex flex-wrap gap-[15px] w-full justify-start">
+              <MyBlock
+                title="Vue.js"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-vue-text)"
+                borderColor="var(--skill-vue-border)"
+                backgroundColor="var(--skill-vue-background)"
+              />
+              <MyBlock
+                title="React"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-react-text)"
+                borderColor="var(--skill-react-border)"
+                backgroundColor="var(--skill-react-background)"
+              />
+              <MyBlock
+                title="TypeScript"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-typescript-text)"
+                borderColor="var(--skill-typescript-border)"
+                backgroundColor="var(--skill-typescript-background)"
+              />
+              <MyBlock
+                title="Tailwind CSS"
+                className="w-full sm:flex-1 sm:min-w-[200px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-tailwind-text)"
+                borderColor="var(--skill-tailwind-border)"
+                backgroundColor="var(--skill-tailwind-background)"
+              />
+              <MyBlock
+                title="Custom CSS"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-custom-css-text)"
+                borderColor="var(--skill-custom-css-border)"
+                backgroundColor="var(--skill-custom-css-background)"
+              />
             </div>
-            <div className="flex gap-[15px] w-full">
-              <MyBlock title="Spring Boot" textColor="var(--skill-spring-boot-text)" borderColor="var(--skill-spring-boot-border)" backgroundColor="var(--skill-spring-boot-background)" className="flex-1 min-w-0 text-nowrap"/>
-              <MyBlock title="Hibernate" textColor="var(--skill-hibernate-text)" borderColor="var(--skill-hibernate-border)" backgroundColor="var(--skill-hibernate-background)" className="text-nowrap"/>
-              <MyBlock title="Java" textColor="var(--skill-java-text)" borderColor="var(--skill-java-border)" backgroundColor="var(--skill-java-background)" className="text-nowrap"/>
-              <MyBlock title="Spring Security" textColor="var(--skill-spring-security-text)" borderColor="var(--skill-spring-security-border)" backgroundColor="var(--skill-spring-security-background)" className="text-nowrap"/>
-              <MyBlock title="Lombok" textColor="var(--skill-lombok-text)" borderColor="var(--skill-lombok-border)" backgroundColor="var(--skill-lombok-background)" className="text-nowrap"/>
+            <div className="flex flex-wrap gap-[15px] w-full justify-start">
+              <MyBlock
+                title="Spring Boot"
+                className="w-full sm:flex-1 sm:min-w-[200px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-spring-boot-text)"
+                borderColor="var(--skill-spring-boot-border)"
+                backgroundColor="var(--skill-spring-boot-background)"
+              />
+              <MyBlock
+                title="Hibernate"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-hibernate-text)"
+                borderColor="var(--skill-hibernate-border)"
+                backgroundColor="var(--skill-hibernate-background)"
+              />
+              <MyBlock
+                title="Java"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-java-text)"
+                borderColor="var(--skill-java-border)"
+                backgroundColor="var(--skill-java-background)"
+              />
+              <MyBlock
+                title="Spring Security"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-spring-security-text)"
+                borderColor="var(--skill-spring-security-border)"
+                backgroundColor="var(--skill-spring-security-background)"
+              />
+              <MyBlock
+                title="Lombok"
+                className="w-full sm:w-auto sm:min-w-[150px] md:text-nowrap"
+                fullWidth
+                textColor="var(--skill-lombok-text)"
+                borderColor="var(--skill-lombok-border)"
+                backgroundColor="var(--skill-lombok-background)"
+              />
             </div>
           </div>
         } titleIcon={
@@ -143,18 +248,18 @@ export default function Home() {
           />
         } />
 
-        <MyCard title="Профессиональные грамоты:" className="max-w-[1000px] mt-[45px]" id="certificates" content={
+        <MyCard title="Профессиональные грамоты:" className="max-w-[1000px] mt-[30px] sm:mt-[40px] md:mt-[45px]" id="certificates" content={
           <div className="flex flex-col gap-[15px] w-full">
             <div className="flex flex-col gap-[5px]">
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[16px] text-emphasis font-[500]">— 1 место по Профессиональному чемпионату Web-технологии</span>
                 <span className="text-[11px] text-muted font-light">(регион, <a href="https://pro.firpo.ru" className="underline">подробнее</a>)</span>
               </div>
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[16px] text-emphasis font-[500]">— 12 место по Профессиональному чемпионату Web-технологии</span>
                 <span className="text-[11px] text-muted font-light">(всероссийский, <a href="https://pro.firpo.ru" className="underline">подробнее</a>)</span>
               </div>
-              <div className="flex gap-[10px] ml-[30px] items-center">
+              <div className="flex flex-wrap items-center gap-[6px] sm:gap-[10px] ml-0 sm:ml-[30px] text-left">
                 <span className="text-[16px] text-emphasis font-[500]">— Диплом победителя ИТ-спринт</span>
                 <span className="text-[11px] text-muted font-light">(регион, кейс от Медиа Сервис)</span>
               </div>
@@ -169,12 +274,33 @@ export default function Home() {
           />
         } />
 
-        <MyCard title="Связь со мной:" className="max-w-[1000px] mt-[45px]" id="contact" content={
+        <MyCard title="Связь со мной:" className="max-w-[1000px] mt-[30px] sm:mt-[40px] md:mt-[45px]" id="contact" content={
           <div className="flex flex-col gap-[15px] w-full">
-            <div className="flex gap-[15px] w-full">
-              <MyBlock title="GitHub: TiroMaks" textColor="var(--contact-github-text)" borderColor="var(--contact-github-border)" backgroundColor="var(--contact-github-background)" className="text-nowrap cursor-pointer" openInNewTab="https://github.com/TiroMaks"/>
-              <MyBlock title="Телеграм: @hafn_g" textColor="var(--contact-telegram-text)" borderColor="var(--contact-telegram-border)" backgroundColor="var(--contact-telegram-background)" className="flex-1 min-w-0 text-nowrap cursor-pointer" openInNewTab="https://t.me/hafn_g" />
-              <MyBlock title="Почта: maksimmail6311@gmail.com" textColor="var(--contact-email-text)" borderColor="var(--contact-email-border)" backgroundColor="var(--contact-email-background)" className="text-nowrap cursor-pointer" openInNewTab="mailto:maksimmail6311@gmail.com"/>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-start sm:[&>*:nth-last-child(1):nth-child(odd)]:mx-auto gap-[15px] w-full">
+              <MyBlock
+                title="GitHub: TiroMaks"
+                className="md:text-nowrap"
+                textColor="var(--contact-github-text)"
+                borderColor="var(--contact-github-border)"
+                backgroundColor="var(--contact-github-background)"
+                openInNewTab="https://github.com/TiroMaks"
+              />
+              <MyBlock
+                title="Телеграм: @hafn_g"
+                className="flex-1 min-w-[200px] md:text-nowrap"
+                textColor="var(--contact-telegram-text)"
+                borderColor="var(--contact-telegram-border)"
+                backgroundColor="var(--contact-telegram-background)"
+                openInNewTab="https://t.me/hafn_g"
+              />
+              <MyBlock
+                title="Почта: maksimmail6311@gmail.com"
+                className="md:text-nowrap"
+                textColor="var(--contact-email-text)"
+                borderColor="var(--contact-email-border)"
+                backgroundColor="var(--contact-email-background)"
+                openInNewTab="mailto:maksimmail6311@gmail.com"
+              />
             </div>
           </div>
         } titleIcon={
@@ -186,7 +312,7 @@ export default function Home() {
           />
         } />
 
-        <MyCard title="Проекты:" className="max-w-[1000px] mt-[45px]" id="projects" content={
+        <MyCard title="Проекты:" className="max-w-[1000px] mt-[30px] sm:mt-[40px] md:mt-[45px]" id="projects" content={
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] w-full md:[&>*:nth-last-child(1):nth-child(odd)]:col-span-2 md:[&>*:nth-last-child(1):nth-child(odd)]:justify-self-center md:[&>*:nth-last-child(1):nth-child(odd)]:max-w-[480px]">
             <MyProject
               title="ExultantHarmony"
@@ -249,7 +375,7 @@ export default function Home() {
           />
         } />
 
-        <div className="w-full max-w-[1000px] mt-[45px] flex flex-col items-center">
+        <div className="w-full max-w-[1000px] mt-[30px] sm:mt-[40px] md:mt-[45px] flex flex-col items-center">
           <div
             className="w-full p-[7px] border-[3px] rounded-[14px] flex flex-col gap-0 items-center justify-center"
             style={{

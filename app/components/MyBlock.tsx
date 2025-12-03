@@ -10,6 +10,8 @@ interface MyBlockProps {
   textColor?: string;
   backgroundColor?: string;
   borderColor?: string;
+  titleClassName?: string;
+  fullWidth?: boolean;
 }
 
 const MyBlock: React.FC<MyBlockProps> = ({
@@ -19,15 +21,18 @@ const MyBlock: React.FC<MyBlockProps> = ({
   className,
   textColor,
   backgroundColor,
-  borderColor
+  borderColor,
+  titleClassName,
+  fullWidth = false
 }) => {
   const defaultTextColor = textColor ?? "var(--color-title)";
   const defaultBackgroundColor = backgroundColor ?? "var(--chip-background)";
   const defaultBorderColor = borderColor ?? "var(--chip-border)";
 
   const containerClassName = [
-    "px-[30px] py-[5px] border-[2px] rounded-[8px] flex flex-row items-center justify-center gap-[10px]",
-    openInNewTab ? undefined : "select-none",
+    fullWidth ? "w-full flex" : "w-auto inline-flex",
+    "px-[16px] sm:px-[20px] md:px-[24px] lg:px-[30px] py-[6px] border-[2px] rounded-[8px] items-center justify-center gap-[10px] text-center sm:text-left",
+    openInNewTab ? "cursor-pointer" : "select-none",
     className
   ]
     .filter(Boolean)
@@ -39,6 +44,13 @@ const MyBlock: React.FC<MyBlockProps> = ({
       }
     : undefined;
 
+  const titleSpanClassName = [
+    "text-[14px] sm:text-[15px] whitespace-nowrap",
+    titleClassName
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div
       className={containerClassName}
@@ -46,7 +58,7 @@ const MyBlock: React.FC<MyBlockProps> = ({
       style={{ backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor }}
     >
       {titleIcon}
-      <span className="text-[15px]" style={{ color: defaultTextColor }}>
+      <span className={titleSpanClassName} style={{ color: defaultTextColor }}>
         {title}
       </span>
     </div>

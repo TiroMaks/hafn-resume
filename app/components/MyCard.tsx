@@ -18,7 +18,7 @@ const MyCard: React.FC<MyCardProps> = ({
   content
 }) => {
   const containerClassName = [
-    "w-full p-[20px] border-[3px] rounded-[14px] flex flex-col gap-[15px]",
+    "w-full p-[16px] sm:p-[20px] border-[3px] rounded-[14px] flex flex-col gap-[12px] sm:gap-[15px]",
     className
   ]
     .filter(Boolean)
@@ -33,9 +33,9 @@ const MyCard: React.FC<MyCardProps> = ({
 
   return (
     <div className={containerClassName} id={id} style={containerStyle}>
-      <div className="flex items-center gap-[10px]">
+      <div className="flex items-center gap-[8px] sm:gap-[10px]">
         {titleIcon}
-        <span className="text-[19px] text-[var(--color-title)]">{title}</span>
+        <span className="text-[18px] sm:text-[19px] text-[var(--color-title)]">{title}</span>
       </div>
       {normalizedContent}
     </div>
