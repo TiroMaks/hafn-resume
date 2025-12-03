@@ -131,7 +131,7 @@ const MyProject: React.FC<MyProjectProps> = ({
       </div>
       <div className="flex w-full flex-col items-center gap-[5px] p-[10px] text-center">
         <h2 className="text-[16px]" style={{ color: "var(--project-text-color)" }}>{title}</h2>
-        <p className="text-[12px] font-thin h-full" style={{ color: "var(--project-description-color)" }}>{description}</p>
+        <p className="text-[12px] font-thin h-full leading-[15px]" style={{ color: "var(--project-description-color)" }}>{description}</p>
         <button
           onClick={() => window.open(siteUrl, "_blank", "noopener,noreferrer")}
           className="mt-[5px] cursor-pointer rounded-[8px] border-[3px] px-[30px] py-[5px] text-[13px]"

@@ -27,6 +27,7 @@ const MyBlock: React.FC<MyBlockProps> = ({
 
   const containerClassName = [
     "px-[30px] py-[5px] border-[2px] rounded-[8px] flex flex-row items-center justify-center gap-[10px]",
+    openInNewTab ? undefined : "select-none",
     className
   ]
     .filter(Boolean)

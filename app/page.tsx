@@ -187,7 +187,7 @@ export default function Home() {
         } />
 
         <MyCard title="Проекты:" className="max-w-[1000px] mt-[45px]" id="projects" content={
-          <div className="grid grid-cols-2 gap-[20px] w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] w-full md:[&>*:nth-last-child(1):nth-child(odd)]:col-span-2 md:[&>*:nth-last-child(1):nth-child(odd)]:justify-self-center md:[&>*:nth-last-child(1):nth-child(odd)]:max-w-[480px]">
             <MyProject
               title="ExultantHarmony"
               description="Сайт с онлайн покупкой, личным кабинетом и админ-панелью. Написан на Vue (Custom CSS/ванильный), Spring Boot (Java) и MySQL; развернут на Docker"
