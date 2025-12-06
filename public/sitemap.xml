@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hafn.ru</loc>
-    <lastmod>2025-12-06T07:33:02+03:00</lastmod>
+    <loc>https://hafn.ru/</loc>
+    <lastmod>2025-12-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1</priority>
+    <priority>1.0</priority>
   </url>
-</sitemapindex>
+</urlset>
