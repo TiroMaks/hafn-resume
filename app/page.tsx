@@ -9,6 +9,7 @@ import ScrollToTopLink from "./components/ScrollToTopLink";
 export default function Home() {
   return (
     <div className="flex justify-center min-h-screen relative w-full">
+      <h1 className="hidden absolute">Резюме для Максим С.</h1>
       <DotBackground />
       <div className="w-full mt-[90px] sm:mt-[110px] md:mt-[150px] mb-[25px] flex flex-col items-center px-4 sm:px-6">
         <div
